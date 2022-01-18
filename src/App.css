@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+
+
+/* UTILITIES */
+.flex{
+    display: flex;
+}
+.col{
+    flex-direction: column;
+}
+.justify-spacebetween{
+    justify-content: space-between;
+}
+.align-center{
+    align-items: center;
+}
+.center{
+    justify-content: center;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+/* MAIN */
+.main{
+    display: grid;
+    grid-template-columns: 1.9fr 1.5fr;
+    justify-content: space-between;
+    background-image: url('./assets/desktop-background.png');
+    background-position: 50%;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 8rem 8.5rem 8.5rem;
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.left_side{
+    width: 100%;
+    padding: 1rem 6rem;
+}
+
+.game_levels_icons{
+    width: 2rem;
+    padding: 1rem .2rem;
+}
+.story_title{
+    font-size: 2.5rem;
+     color: var(--red);
+     font-weight: 600;
+     padding-bottom: .8rem;
+}
+
+.episode{
+    font-size: 2rem;
+    color: var(--red);
+}
+
+.instruction_section {
+    margin-top: 15rem;
   }
+
+.instruction{
+    line-height: 4rem;
+    font-size: 2.5rem;
+    color: var(--dark);
+}
+.primary_header{
+    color: var(--dark);
+    font-size: 3rem;
+    padding-bottom: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/* RIGHT SIDE */
+.right_side{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem 6rem;
+}
+.soundToggle, .resetToggle{
+    width: 2.5rem;
+    justify-self: flex-end;
+}
+.soundIcon,.resetIcon{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+.resetIcon{
+    margin-top: 15rem;
+}
+.display_text{
+   padding: 1.5rem 2rem;
+   border-radius: 1rem;
+   margin-top: 1.5rem;
+   width: 100%;
+   font-size: 2rem;
+   outline: none;
+   border: none;
+   background-color: var(--inputBg);
+   color: var(--dark);
+   box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%);
+}
+.letter{
+    margin-top: 2rem;
+    background-color: var(--inputBg);
+    padding: .9rem 1.8rem;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-right: 1rem;
+    box-shadow: 0px 3px 1px -1px rgb(0 0 0 / 20%);
+    cursor: pointer;
+}
+.clicked{
+    color: var(--clicked);
+}
+.wrap_buttons{
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+/* MEDIA QUERIES */
+
+@media (max-width:1400px) {
+    .main{
+        padding: 2rem 3.5rem 2.5rem;
+      }
+      .instruction_section{
+        margin-top: 12rem;
+    }
+    .left_side,
+    .right_side {
+        padding: 1rem 2rem;
+    }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+@media (max-width:1000px) {
+    .main {
+        grid-template-columns: 1fr;
+        background-image: url('./assets/mobile-background.png');
+        padding: 2rem 4.5rem;
+    }
+    .instruction_section {
+        margin-top: 4rem;
+    }
+    .flex-wrap{
+        flex-wrap: wrap;
+    }
+    .soundIcon{
+        display: none;
+    }
+    .wrap_buttons{
+        justify-content: center;
+    }
+}
+@media (max-width:500px) {
+    .main{
+        background-image: url('./assets/mobile-background.png');
+        padding: 2rem 1.5rem;
+        width: 100%;
+    }
+    .left_side, .right_side {
+        padding: 1rem;
+    }
+    .resetIcon {
+        margin-top: 5rem;
+    }
+    .game_levels_icons {
+        width: 1.8rem;
+    }
+    .story_title {
+        font-size: 2rem;
+    }
+    .episode {
+        font-size: 1.7rem;
+    }
+    .instruction {
+        line-height: 2.4rem;
+        font-size: 1.5rem;
+    }
+    .instruction_section {
+        margin-top: 3rem;
+    }
+    .primary_header {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+    }
+
 }
