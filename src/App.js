@@ -9,19 +9,25 @@ import { useRef,useState } from 'react';
 
 function App() {
   const [text, setText] = useState(' ');
+  const [clickedWords, setClickedWords] = useState([]);
   const outputRef = useRef();
-  const resetRef = useRef()
+  const resetRef = useRef();
+  const checkRef = useRef();
+
  
   const resetBtn = ()=>{
     // Reset the output field
     setText('');
-    // Reset the button states
-
+    // Reset the button clasesses to inactive
+    checkRef.current.childNodes.forEach(element => element.className = 'letter');
+    
   }
 
   const handleInnerText = (innerTextValue) => {
     setText(text + " " + innerTextValue);
   }
+
+  const setClickedWord = clickedWord => setClickedWords(prevState => [...prevState, clickedWord]);
  
   return (
     <div className="App">
@@ -58,11 +64,31 @@ function App() {
                 ref={outputRef}
                 readOnly
            />
-          <div className="flex">
-          <PaperLetter handleInnerText={handleInnerText}>teeth.</PaperLetter>
-          <PaperLetter handleInnerText={handleInnerText}>brush</PaperLetter>
-          <PaperLetter handleInnerText={handleInnerText}>my</PaperLetter>
-          <PaperLetter handleInnerText={handleInnerText}>i</PaperLetter>
+          <div className="flex flex-wrap wrap_buttons" ref={checkRef}>
+          <PaperLetter 
+            handleInnerText={handleInnerText}
+            clickedWords ={clickedWords}
+            setClickedWord={setClickedWord}
+            >teeth.
+          </PaperLetter>
+          <PaperLetter 
+            handleInnerText={handleInnerText}
+            clickedWords ={clickedWords}
+            setClickedWord={setClickedWord}
+          >brush
+          </PaperLetter>
+          <PaperLetter 
+            handleInnerText={handleInnerText}
+            clickedWords ={clickedWords}
+            setClickedWord={setClickedWord}
+          >my
+          </PaperLetter>
+          <PaperLetter 
+            handleInnerText={handleInnerText}
+            clickedWords ={clickedWords}
+            setClickedWord={setClickedWord}
+          >i
+          </PaperLetter>
         </div>
         </div>
       </div>
