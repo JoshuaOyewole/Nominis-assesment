@@ -1,4 +1,4 @@
-import { useState,useRef } from 'react';
+import {useRef } from 'react';
 
 export default function PaperLetter(props) {
 const letterRef = useRef();
@@ -15,7 +15,7 @@ const btnClicked =()=>{
 }
 
     return (
-        <p className={clickedWords.includes(props.children) ? 'letter clicked': 'letter'} onClick={btnClicked} ref={letterRef} >{props.children}
+        <p className={clickedWords.includes(props.children) ? 'letter clicked': 'letter'} onClick={btnClicked} ref={letterRef} title='answerOption' >{props.children}
         </p>
     )
 }
