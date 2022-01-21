@@ -11,10 +11,10 @@ it('Check if reset icon exist in the Game', () => {
     expect(instructionText).toBe('Put the words in order to make  a correct sentence.')
   });
 
-  
+
   it('Checks if the instructions are displayed currently', () => {
     const wrapper = shallow(<App />);
-    const instructionText = wrapper.find('p.instruction').text()
+    const instructionText = wrapper.find('p.instruction').text();
     expect(instructionText).toBe('Put the words in order to make  a correct sentence.')
   });
 });
